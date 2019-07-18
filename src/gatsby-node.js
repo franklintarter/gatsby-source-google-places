@@ -1,5 +1,5 @@
-const getPlaceDetails = require('./src/getPlaceDetails');
-const nodeFactory = require('./src/nodeFactory');
+const getPlaceDetails = require('./getPlaceDetails');
+const nodeFactory = require('./nodeFactory');
 
 exports.sourceNodes = async ({ actions }, { apiKey, placeId }) => {
   try {
@@ -10,7 +10,7 @@ exports.sourceNodes = async ({ actions }, { apiKey, placeId }) => {
     const placeNode = nodeFactory.placeNode(place);
     delete placeNode.reviews
     createNode(placeNode);
-
+    
     place.reviews.forEach(review => {
       review.id = review.time;
       const placeReviewNode = nodeFactory.reviewNode(review, {
