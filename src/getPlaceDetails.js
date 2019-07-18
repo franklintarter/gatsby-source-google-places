@@ -7,8 +7,13 @@ module.exports = (key, placeid) => {
   const parameters = {
     key,
     placeid,
-    fields: 'formatted_address,geometry,icon,name,permanently_closed,photos,place_id,plus_code,types,opening_hours,open_now,price_level,rating,user_ratings_total'
+    fields: 'formatted_address,geometry,icon,name,permanently_closed,photos,place_id,plus_code,types,opening_hours,price_level,rating,user_ratings_total,reviews'
   }
+  try {
+    return axios.get(`${baseUri}?${querystring.stringify(parameters)}`)
 
-  return axios.get(`${baseUri}?${querystring.stringify(parameters)}`)
+  } catch(e) {
+    console.error(e)
+    process.exit(1);
+  }
 }
