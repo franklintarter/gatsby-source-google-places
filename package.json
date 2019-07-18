@@ -1,7 +1,10 @@
 {
   "name": "gatsby-source-google-places",
   "description": "Gatsby source plugin for the Google places API",
-  "author": "franklintarter@gmail.com",
+  "author": "Franklin Tarter <franklintarter@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/franklintarter/gatsby-source-google-places/issues"
+  },
   "main": "index.js",
   "version": "0.0.1",
   "keywords": [
@@ -11,11 +14,16 @@
     "google-places",
     "google-places-api"
   ],
+  "homepage": "https://github.com/franklintarter/gatsby-source-google-places",
   "dependencies": {
     "axios": "^0.19.0",
     "gatsby-node-helpers": "^0.3.0",
     "querystring": "^0.2.0"
   },
+  "peerDependencies": {
+    "gatsby": "^2.0.0"
+  },
+  "license": "MIT",
   "engines": {
     "node": ">=8.0.0"
   }
