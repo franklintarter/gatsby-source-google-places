@@ -7,7 +7,7 @@ module.exports = (key, placeid) => {
   const parameters = {
     key,
     placeid,
-    fields: 'name,rating,formatted_phone_number,reviews,opening_hours'
+    fields: 'formatted_address,geometry,icon,name,permanently_closed,photos,place_id,plus_code,types,opening_hours,open_now,price_level,rating,user_ratings_total'
   }
 
   return axios.get(`${baseUri}?${querystring.stringify(parameters)}`)
