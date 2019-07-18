@@ -20,12 +20,23 @@
     "gatsby-node-helpers": "^0.3.0",
     "querystring": "^0.2.0"
   },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "babel-preset-gatsby-package": "^0.2.2",
+    "cross-env": "^5.1.4"
+  },
   "peerDependencies": {
     "gatsby": "^2.0.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/franklintarter/gatsby-source-google-places.git"
+  },
+  "scripts": {
+    "build": "babel src --out-dir . --ignore **/__tests__",
+    "prepare": "cross-env NODE_ENV=production npm run build",
+    "watch": "babel -w src --out-dir . --ignore **/__tests__"
   },
   "license": "MIT",
   "engines": {
