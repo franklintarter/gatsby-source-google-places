@@ -23,6 +23,10 @@
   "peerDependencies": {
     "gatsby": "^2.0.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/franklintarter/gatsby-source-google-places.git"
+  },
   "license": "MIT",
   "engines": {
     "node": ">=8.0.0"
