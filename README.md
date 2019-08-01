@@ -8,7 +8,7 @@ Get a [Google Places API Key](https://developers.google.com/places/web-service/g
 
 ## Install
 
-```bash
+```terminal
 npm install --save gatsby-source-google-places
 # or
 yarn add gatsby-source-google-places
@@ -58,7 +58,7 @@ const PlacesPage = ({ data }) => {
       <h3>Recent Reviews</h3>
       {reviews}
     </Layout>
-  );
+  )
 }
 
 export const query = graphql`
