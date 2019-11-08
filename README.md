@@ -25,31 +25,33 @@ module.exports = {
     {
       resolve: `gatsby-source-google-places`,
       options: {
-        spaceId: `<your_space_id>`,
-        apiKey: '<your_api_key>',
-      },
-    },
-  ],
-}
+        placeId: "<your_place_id>",
+        apiKey: "<your_api_key>"
+      }
+    }
+  ]
+};
 ```
 
 Use query in a page
 
 ```js
 // pages/places.js
-import React from 'react'
-import { graphql } from 'gatsby'
-import Layout from '../components/layout'
+import React from "react";
+import { graphql } from "gatsby";
+import Layout from "../components/layout";
 
 const PlacesPage = ({ data }) => {
-  const place = data.googlePlacesPlace
+  const place = data.googlePlacesPlace;
   const reviews = place.childrenGooglePlacesReview.map(r => (
     <div>
       <img height="50" width="50" src={r.profile_photo_url} />
-      <strong>{r.author_name} - {r.rating}</strong>
+      <strong>
+        {r.author_name} - {r.rating}
+      </strong>
       <p>{`${r.text.substring(0, 250)} ...`}</p>
     </div>
-  ))
+  ));
   return (
     <Layout>
       <h1>{place.name}</h1>
@@ -58,26 +60,26 @@ const PlacesPage = ({ data }) => {
       <h3>Recent Reviews</h3>
       {reviews}
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
-query {
-  googlePlacesPlace {
-    name
-    rating
-    childrenGooglePlacesReview {
-      author_name
-      text
+  query {
+    googlePlacesPlace {
+      name
       rating
-      profile_photo_url
+      childrenGooglePlacesReview {
+        author_name
+        text
+        rating
+        profile_photo_url
+      }
+      user_ratings_total
     }
-    user_ratings_total
   }
-}
-`
+`;
 
-export default PlacesPage
+export default PlacesPage;
 ```
 
 ## Contribute
