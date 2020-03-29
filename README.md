@@ -25,7 +25,7 @@ module.exports = {
     {
       resolve: `gatsby-source-google-places`,
       options: {
-        placeId: "<your_place_id>",
+        placeIds: ["<your_place_id>", "<your_place_id2>"],
         apiKey: "<your_api_key>"
       }
     }
