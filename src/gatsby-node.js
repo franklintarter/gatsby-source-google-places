@@ -2,7 +2,14 @@ const getPlaceDetails = require('./getPlaceDetails');
 const nodeFactory = require('./nodeFactory');
 
 const resolvePlace = async ({ apiKey, placeId, createNode }) => {
-  const place = (await getPlaceDetails(apiKey, placeId)).data.result;
+  const response = (await getPlaceDetails(apiKey, placeId));
+
+  if (response.data.status !== "OK") {
+    throw Error("Request to Google API failed. " + response.data.error_message)
+  }
+
+  const place = response.data.result
+
   place.id = placeId;
 
   const placeNode = nodeFactory.placeNode(place);

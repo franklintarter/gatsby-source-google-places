@@ -6,7 +6,7 @@
     "url": "https://github.com/franklintarter/gatsby-source-google-places/issues"
   },
   "main": "index.js",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "keywords": [
     "gatsby",
     "gatsby-plugin",
