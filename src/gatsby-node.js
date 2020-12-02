@@ -1,8 +1,8 @@
 const getPlaceDetails = require('./getPlaceDetails');
 const nodeFactory = require('./nodeFactory');
 
-const resolvePlace = async ({ apiKey, placeId, createNode }) => {
-  const response = (await getPlaceDetails(apiKey, placeId));
+const resolvePlace = async ({ apiKey, placeId, language, createNode }) => {
+  const response = (await getPlaceDetails(apiKey, placeId, language));
 
   if (response.data.status !== "OK") {
     throw Error("Request to Google API failed. " + response.data.error_message)
@@ -27,7 +27,7 @@ const resolvePlace = async ({ apiKey, placeId, createNode }) => {
   return;
 }
 
-exports.sourceNodes = async ({ actions }, { apiKey, placeIds, placeId }) => {
+exports.sourceNodes = async ({ actions }, { apiKey, placeIds, placeId, language = 'en-US' }) => {
   try {
 
     // Backwards compatibility
@@ -43,7 +43,7 @@ exports.sourceNodes = async ({ actions }, { apiKey, placeIds, placeId }) => {
       placeIds = [placeIds]
     }
 
-    await Promise.all(placeIds.map((pid) => resolvePlace({ apiKey, placeId: pid, createNode })))
+    await Promise.all(placeIds.map((pid) => resolvePlace({ apiKey, placeId: pid, language, createNode })))
     
   } catch (error) {
     console.error(error)
