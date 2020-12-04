@@ -27,6 +27,7 @@ module.exports = {
       options: {
         placeIds: ["<your_place_id>", "<your_place_id2>"],
         apiKey: "<your_api_key>"
+        // language: "en-US" // optional
       }
     }
   ]
