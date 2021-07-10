@@ -1,3 +1,7 @@
+## 0.0.9
+
+- Bump `browserslist` from 4.6.6 to 4.16.6 
+- Bump `lodash` from 4.17.19 to 4.17.21
 ## 0.0.8
 
 - Dependabot bump `axios` 0.19.0 to 0.21.1
