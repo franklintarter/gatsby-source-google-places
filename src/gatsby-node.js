@@ -15,14 +15,14 @@ const resolvePlace = async ({ apiKey, placeId, language, createNode }) => {
   const placeNode = nodeFactory.placeNode(place);
   delete placeNode.reviews
   createNode(placeNode);
-  
+  if(place.reviews){
   place.reviews.forEach(review => {
     review.id = review.time;
     const placeReviewNode = nodeFactory.reviewNode(review, {
       parent: placeNode.id
     });
     createNode(placeReviewNode);
-  })
+  })}
 
   return;
 }
