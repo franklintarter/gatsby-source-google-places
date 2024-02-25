@@ -16,7 +16,7 @@
   ],
   "homepage": "https://github.com/franklintarter/gatsby-source-google-places",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.28.0",
     "gatsby-node-helpers": "^0.3.0",
     "querystring": "^0.2.0"
   },
